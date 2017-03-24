@@ -1,8 +1,72 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script type="text/javascript">
+// Main script
+$(document).ready(function(){
+    let result = '';
+    let temp = 0;
+    let operator = '';
+    $('.btn').on('click', function() {
+        let value = $(this).text();
+        if (isNaN(value)) {
+            if (value == '=') {
+                result = eval(temp + operator + result);
+            } else if (value == 'C') {
+                result = '';
+            } else {
+                temp = result;
+                operator = value;
+                result = '';
+            }
+        } else {
+            result = result + value;
+        }    
+        $('#result').val(result);
+    });
+});
+</script>
+
 </head>
 <body>
-Hello world.
+<div class="container">
+    <div class="row">
+        <div class="col-12 input-group">
+            <input id="result" type="text" class="form-control" placeholder="計算結果" disabled/>
+        </div>
+    </div>
+    <div class="row">
+        <button type="button" class="btn btn-default btn-lg">7</button>
+        <button type="button" class="btn btn-default btn-lg">8</button>
+        <button type="button" class="btn btn-default btn-lg">9</button>
+        <button type="button" class="btn btn-default btn-lg">÷</button>
+    </div>
+    <div class="row">
+        <button type="button" class="btn btn-default btn-lg">4</button>
+        <button type="button" class="btn btn-default btn-lg">5</button>
+        <button type="button" class="btn btn-default btn-lg">6</button>
+        <button type="button" class="btn btn-default btn-lg">x</button>
+    </div>
+    <div class="row">
+        <button type="button" class="btn btn-default btn-lg">1</button>
+        <button type="button" class="btn btn-default btn-lg">2</button>
+        <button type="button" class="btn btn-default btn-lg">3</button>
+        <button type="button" class="btn btn-default btn-lg">-</button>
+    </div>
+    <div class="row">
+        <button type="button" class="btn btn-default btn-lg">0</button>
+        <button type="button" class="btn btn-default btn-lg">.</button>
+        <button type="button" class="btn btn-default btn-lg">C</button>
+        <button type="button" class="btn btn-default btn-lg">+</button>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <button type="button" class="btn btn-default btn-lg">=</button>
+        </div>
+    </div>
+</div>
 </body>
 </html>
