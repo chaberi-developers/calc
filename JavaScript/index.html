@@ -10,9 +10,16 @@ $(document).ready(function(){
     let result = '';
     let temp = 0;
     let operator = '';
-    $('.btn').on('click', function() {
-        let value = $(this).text();
+   
+    function inputs(value) {
+        for (let i in value.split('')) {
+            input(value[i]);
+        }
+    }
+
+    function input(value) {
         value = (value == '÷') ? '/' : value;
+        value = (value == 'x') ? '*' : value;
 
         if (isNaN(value)) {
             if (value == '=') {
@@ -28,7 +35,25 @@ $(document).ready(function(){
             result = result + value;
         }    
         $('#result').val(result);
+    }
+
+    // Binding
+    $('.btn').on('click', function(){
+        input($(this).text());
     });
+
+    // ==================== Test function ====================
+    function assert(value, expected) {
+        // TODO: implements verbose mode.
+        console.log('.');
+        inputs(value);
+        console.assert($('#result').val() === expected, '');
+        input('C');
+    }
+    assert('3+3=', '6');
+    assert('5-4=', '1');
+    assert('5x5=', '25');
+    assert('9÷3=', '3');
 });
 </script>
 
