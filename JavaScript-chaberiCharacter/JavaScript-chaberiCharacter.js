@@ -22,6 +22,7 @@ $('#input').keyup(function(){
     }
 })
 
+
 $('input[alt="発言する"]').click(function(){
     now =210-$('#input').val().length;
     $('#text-length').text('残り'+ now +'文字');
