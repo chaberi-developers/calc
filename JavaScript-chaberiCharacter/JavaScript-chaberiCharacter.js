@@ -4,6 +4,10 @@ textLength.attr('id','text-length');
 textLength.text('残り210文字');
 $('.textInput').append(textLength);
 
+
+
+
+
 var cssStyle = $('<style>');
 cssStyle.text('#text-length{color:#999;font-size:14px; padding:10px 10px 10px 350px;}  #text-length.lengthOver{color:#C00;}');
 $('head').append(cssStyle);
@@ -21,10 +25,7 @@ $('#input').keyup(function(){
     $('input[alt="発言する"]').prop('disabled',false);
     }
 })
-
-
 $('input[alt="発言する"]').click(function(){
     now =210-$('#input').val().length;
     $('#text-length').text('残り'+ now +'文字');
-    
 })
