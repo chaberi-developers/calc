@@ -25,3 +25,14 @@ $('input[alt="発言する"]').click(function(){
     now =210-$('#input').val().length;
     $('#text-length').text('残り'+ now +'文字');
 })
+
+
+
+
+/* dekireba adoon ka sitai firefox chrome 
+$('div#messageFrame').css("height", "800px");
+$('div#chatContent').css("height", "800px");
+*/ 
+
+
+
